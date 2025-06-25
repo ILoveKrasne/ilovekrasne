@@ -2,163 +2,183 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>I Love Krasne - Koszulki lokalne</title>
   <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
-  header {
-    background: #e91e63;
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-    animation: slideDown 1s ease-out;
-  }
-
-  h1, h2 {
-    margin: 10px;
-  }
-
-  section {
-    padding: 20px;
-    animation: fadeIn 1.5s ease forwards;
-    opacity: 0;
-  }
-
-  section:nth-of-type(2) {
-    animation-delay: 0.3s;
-  }
-
-  section:nth-of-type(3) {
-    animation-delay: 0.6s;
-  }
-
-  section:nth-of-type(4) {
-    animation-delay: 0.9s;
-  }
-
-  .product {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .product img {
-    max-width: 300px;
-    border-radius: 12px;
-    transition: transform 0.4s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  .product img:hover {
-    transform: scale(1.05);
-  }
-
-  .product-details {
-    max-width: 500px;
-  }
-
-  .order-form {
-    max-width: 600px;
-    margin: auto;
-  }
-
-  .order-form input,
-  .order-form select,
-  .order-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-  }
-
-  .order-form button {
-    background: #e91e63;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    margin-top: 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .order-form button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #e91e63;
-    color: white;
-    margin-top: 40px;
-  }
-
-  footer a {
-    color: #fff;
-    text-decoration: underline;
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    /* Ogólne */
+    * {
+      box-sizing: border-box;
     }
-    from {
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    header {
+      background: #e91e63;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      transition: transform 0.4s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.05);
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.4);
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 1s ease forwards;
       opacity: 0;
-      transform: translateY(20px);
     }
-  }
 
-  @keyframes slideDown {
-    from {
+    section:nth-of-type(2) { animation-delay: 0.3s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.9s; }
+
+    .product {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      animation: fadeUp 1s ease-in-out forwards;
       opacity: 0;
-      transform: translateY(-40px);
+      animation-delay: 0.6s;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
 
+    .product img {
+      max-width: 300px;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .product img:hover {
+      transform: scale(1.05);
+    }
+
+    .product-details {
+      max-width: 500px;
+      animation: fadeInUp 1.2s ease-in-out forwards;
+      opacity: 0;
+      animation-delay: 0.8s;
+    }
+
+    .order-form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeInUp 1.3s ease-out forwards;
+      opacity: 0;
+      animation-delay: 1s;
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .order-form button {
+      background: #e91e63;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1.1em;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .order-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e91e63;
+      color: white;
+      margin-top: 40px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Animacje */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>I ❤️ Krasne</h1>
-<!--     <p>Koszulki z Twoją miejscowością – i żartobliwym dystansem</p> -->
   </header>
+
   <section>
     <h2>Opis produktu</h2>
-    <p>Unikalne koszulki z napisem <strong>I ❤️ [Wszystko oprócz malawy] </strong> z przodu, a z tyłu przekreślona nazwa innej miejscowości lub bez tyłu, wtedy w formularzu napisać 'brak'.</p>
+    <p>Unikalne koszulki z napisem <strong>I ❤️ [Wszystko oprócz Malawy]</strong> z przodu, a z tyłu przekreślona nazwa innej miejscowości lub bez tyłu – wtedy w formularzu wpisz <em>'brak'</em>.</p>
   </section>
+
   <section class="product">
-    <img src="koszulka_projekt_krasne.jfif" alt="Koszulka">
+    <img src="koszulka_projekt_krasne.jfif" alt="Koszulka I ❤️ Krasne">
     <div class="product-details">
       <h2>Koszulka I ❤️ Krasne / <s>Malawa</s></h2>
-      <p>Kolory: biały <br>Rozmiary: S, M, L, XL<br>Cena: 59 zł</p>
-      <p><strong>100% bawełna, nadruk handmade, tworzonę z pasją oraz zaangażowanie, farbą do ubrań</strong></p>
+      <p>Kolor: Biały<br>Rozmiary: S, M, L, XL<br>Cena: 59 zł</p>
+      <p><strong>100% bawełna, nadruk handmade – tworzony z pasją i zaangażowaniem!</strong></p>
     </div>
   </section>
+
   <section>
     <h2>Zamów teraz</h2>
     <div class="order-form">
       <form action="https://formsubmit.co/ilovekrasne@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://ilovekrasne.netlify.app/">
+        <input type="hidden" name="_next" value="https://ilovekrasne.netlify.app/">
         <input type="text" name="name" placeholder="Imię i nazwisko" required>
         <input type="email" name="email" placeholder="Adres e-mail" required>
         <input type="text" name="miejscowosc_front" placeholder="Miejscowość z przodu (np. Krasne)" required>
@@ -173,15 +193,14 @@
         <select name="kolor" required>
           <option value="">Wybierz kolor</option>
           <option value="Biały">Biały</option>
-<!--           <option value="Czarny">Czarny</option> -->
         </select>
         <textarea name="adres" placeholder="Adres do wysyłki" required></textarea>
         <button type="submit">Zamawiam!</button>
-        
       </form>
+      <p>Po złożeniu zamówienia odezwiemy się mailowo w sprawie płatności i dostawy. Możesz wybrać: odbiór osobisty, paczkomat lub kuriera. Płatność: przelew, BLIK lub gotówką.</p>
     </div>
   </section>
-<p> Po złożeniu zamówienia odezwiemy się mailowo w sprawie płatności i dostawy. Możesz wybrać: odbiór osobisty, paczkomat lub kuriera. Płatność: przelew, blik lub osobiście gotówką.</p>
+
   <footer>
     <p>&copy; 2025 I Love Krasne | TikTok: <a href="https://www.tiktok.com/@ilovekrasne">@ilovekrasne</a></p>
   </footer>
