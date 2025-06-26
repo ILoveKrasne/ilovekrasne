@@ -138,13 +138,11 @@
       <h3>Koszulka I ❤️ Krasne / <s>Malawa</s></h3>
       <p class="price">Cena: 59 zł</p>
     </div>
-
     <div class="product-item" onclick="showDetails(1)">
       <img src="koszulka_projekt_jasionka-stobierna-.jfif" alt="Koszulka I Love Jasionka">
       <h3>Koszulka I ❤️ Jasionka / <s>Stobierna</s></h3>
       <p class="price">Cena: 59 zł</p>
     </div>
-
     <div class="product-item" onclick="showDetails(2)">
       <img src="koszulka_projekt_swilcza-trzciana-.jfif" alt="Koszulka I Love Świlcza">
       <h3>Koszulka I ❤️ Świlcza / <s>Trzciana</s></h3>
@@ -156,12 +154,13 @@
 
   <section id="order-form-section">
     <h2>Zamów teraz</h2>
+    <!-- 🔍 PODGLĄD NADRUKU -->
+    <p id="preview-nadruk" style="font-size: 18px; font-weight: bold;"></p>
+
     <form action="https://formsubmit.co/ilovekrasne@gmail.com" method="POST">
       <input type="hidden" name="_next" value="https://ilovekrasne.netlify.app/">
-      <input type="text" name="name" placeholder="Imię i nazwisko" required>
       <input type="email" name="email" placeholder="Adres e-mail" required>
-      <input type="text" name="miejscowosc_front" placeholder="Miejscowość z przodu (np. Krasne)" required>
-      <input type="text" name="miejscowosc_back" placeholder="Przekreślona miejscowość z tyłu (np. Mrowla)" required>
+      <input type="text" id="nadruk" name="nadruk" placeholder="Np. Krasne / Mrowla" required readonly>
       <select name="rozmiar" required>
         <option value="">Wybierz rozmiar</option>
         <option value="S">S</option>
@@ -176,6 +175,7 @@
       <textarea name="adres" placeholder="Adres do wysyłki" required></textarea>
       <button type="submit">Zamawiam!</button>
     </form>
+
     <p>Po złożeniu zamówienia odezwiemy się mailowo w sprawie płatności i dostawy. Możesz wybrać: odbiór osobisty, paczkomat lub kuriera. Płatność: przelew, blik lub osobiście gotówką.</p>
   </section>
 
@@ -217,6 +217,19 @@
         <p><strong>${product.price}</strong></p>
         <button id="order-button" class="btn">Zamawiam to</button>
       `;
+
+      const miejscowoscFront = product.title.match(/I ❤️ (.+?) \//)?.[1] || '';
+      const miejscowoscBack = product.title.match(/\/ (.+)/)?.[1] || '';
+
+      // ustaw wartość pola formularza (bez przekreślenia)
+      const nadrukInput = document.querySelector('#nadruk');
+      nadrukInput.value = `${miejscowoscFront.trim()} / ${miejscowoscBack.trim()}`;
+
+      // ustaw podgląd przekreślony
+      const preview = document.getElementById("preview-nadruk");
+      if (preview) {
+        preview.innerHTML = `${miejscowoscFront.trim()} / <s>${miejscowoscBack.trim()}</s>`;
+      }
 
       detailsDiv.classList.remove('show');
       setTimeout(() => {
